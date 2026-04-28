@@ -19,19 +19,13 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a1a2e;c
 
 /* Two-column layout */
 .match-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;align-items:start}
-@media(max-width:660px){
-  .match-layout{grid-template-columns:1fr}
-  .names-col{position:static;top:auto}
-  .controls .btn{flex:1 1 100%}
-  .diff-grid{grid-template-columns:1fr}
-}
 
 /* Left: image cards */
 .chars-col{display:flex;flex-direction:column;gap:8px}
 
 .char-row{background:#16213e;border:2px solid #334;border-radius:12px;overflow:hidden;transition:border-color 0.15s,box-shadow 0.15s;position:relative}
 .char-row:not(.revealed){cursor:pointer}
-.char-row:not(.revealed):hover{border-color:#556}
+.char-row:not(.revealed):hover{border-color:#45b7d1;box-shadow:0 0 10px rgba(69,183,209,0.3)}
 .char-row.img-selected{border-color:#45b7d1;box-shadow:0 0 10px rgba(69,183,209,0.3)}
 .char-row.has-pair{border-color:#7c5cbf}
 .char-row.reveal-correct{border-color:#4ecdc4;background:#0b2020}
@@ -124,6 +118,23 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a1a2e;c
 .res-score{font-size:50px;font-weight:700;color:#4ecdc4;margin:1rem 0}
 .res-detail{font-size:13px;color:#666;margin-bottom:2rem}
 .res-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:660px){
+  .match-layout{grid-template-columns:1fr}
+  .chars-col{order:2}
+  .names-col{position:sticky;top:10px;z-index:5;order:1;padding:10px}
+  .names-col-title{margin-bottom:8px}
+  .names-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;align-items:flex-start}
+  .name-chip{flex:0 0 auto;width:auto;max-width:calc(25% - 5px);padding:8px 10px;font-size:12px;justify-content:center;text-align:center;min-height:34px;line-height:1.2;white-space:nowrap}
+  .used-dot{display:none}
+  .char-top{gap:8px}
+  .char-img{width:56px;height:56px}
+  .controls .btn{flex:1 1 100%}
+  .diff-grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+  .name-chip{max-width:calc(33.333% - 4px);padding:8px 8px}
+}
 </style>
 </head>
 <body>
